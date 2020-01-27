@@ -1,0 +1,26 @@
+Appreciate any help that can be offered.  Tensorflow model has been executed with 21 columns; learning and testing.  Happy with results.
+When try to use model.predict an error is created.  My code is at https://colab.research.google.com/drive/1ptKORsgeIA1Lmur4Vbg8f0yHQyuapVX8
+I used first item/row from training set for model.predict attempt.  Lines of code associate with the model.predict are as follows: 
+  single_horse = df.drop('hrse_tmfnc',axis=1).iloc[0]
+  single_horse = scaler.transform(single_horse.values.reshape(-1,20))
+  model.predict(single_horse)
+Error given is :
+ValueError                                Traceback (most recent call last)
+<ipython-input-169-ab1c726a3f6f> in <module>()
+----> 1 model.predict(single_horse)
+
+20 frames
+/tensorflow-2.1.0/python3.6/tensorflow_core/python/keras/engine/input_spec.py in assert_input_compatibility(input_spec, inputs, layer_name)
+    211                 ' incompatible with the layer: expected axis ' + str(axis) +
+    212                 ' of input shape to have value ' + str(value) +
+--> 213                 ' but received input with shape ' + str(shape))
+    214     # Check shape.
+    215     if spec.shape is not None:
+
+ValueError: Input 0 of layer sequential is incompatible with the layer: expected axis -1 of input shape to have value 21 but received input 
+with shape [None, 20]
+
+What do I need to do?
+
+Thank you for your expertise.  I spent all weekend on trying to get this work.  Actually base of my attempt is copies from a Udemy course
+which ran OK.
